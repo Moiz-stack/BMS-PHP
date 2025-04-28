@@ -11,40 +11,51 @@ while (true) {
     echo "4. Return a Book\n";
     echo "5. Show Issued Books\n";
     echo "6. Exit\n";
+
     echo "Choose an option: ";
     $choice = trim(fgets(STDIN));
 
     if ($choice == 1) {
         echo "Enter Book Title: ";
         $title = trim(fgets(STDIN));
+
         echo "Enter Book Author: ";
         $author = trim(fgets(STDIN));
+
         echo "Enter Book ISBN: ";
         $isbn = trim(fgets(STDIN));
+
         $book = new Book($title, $author, $isbn);
         $library->addBook($book);
 
-    } elseif ($choice == 2) {
+    } 
+    
+    elseif ($choice == 2) {
         $library->showAllBooks();
 
-    } elseif ($choice == 3) {
+    } 
+    elseif ($choice == 3) {
         echo "Enter ISBN to issue: ";
         $isbn = trim(fgets(STDIN));
         $library->issueBook($isbn);
 
-    } elseif ($choice == 4) {
+    } 
+    elseif ($choice == 4) {
         echo "Enter ISBN to return: ";
         $isbn = trim(fgets(STDIN));
         $library->returnBook($isbn);
 
-    } elseif ($choice == 5) {
+    } 
+    elseif ($choice == 5) {
         $library->showIssuedBooks();
 
-    } elseif ($choice == 6) {
+    } 
+    elseif ($choice == 6) {
         echo "Exiting... Goodbye!\n";
         exit;
 
-    } else {
+    } 
+    else {
         echo "Invalid option. Please try again.\n";
     }
 }
